@@ -21,14 +21,19 @@ public class ThreadInterruptDemo implements Runnable {
         boolean stop = false;
         while (!stop) {
             System.out.println("My Thread is running...");
-            long time = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - time < 1000)) {
-                //让循环持续一段时间
-            }
-            if(Thread.currentThread().isInterrupted()){
-                Thread.currentThread();
+            try {
+                Thread.sleep(3L);
+            } catch (InterruptedException e) {
                 break;
             }
+//            long time = System.currentTimeMillis();
+//            while ((System.currentTimeMillis() - time < 1000)) {
+//                //让循环持续一段时间
+//            }
+//            if(Thread.currentThread().isInterrupted()){
+//                Thread.currentThread();
+//                break;
+//            }
         }
         System.out.println("My Thread exiting under request...");
     }
