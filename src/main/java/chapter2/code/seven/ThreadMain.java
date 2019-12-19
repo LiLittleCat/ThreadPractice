@@ -28,7 +28,7 @@ public class ThreadMain {
 
     public static void main(String[] args) {
         ThreadMain sn = new ThreadMain();
-        //3.3个线程共享sn，各自产生序列号
+        //3.3个线程共享sn，各自产生序列号，但未产生干扰
         TestClient t1 = new TestClient(sn);
         TestClient t2 = new TestClient(sn);
         TestClient t3 = new TestClient(sn);

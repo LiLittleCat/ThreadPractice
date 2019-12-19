@@ -69,3 +69,13 @@ new,runnable,running,blocked,dead
 
 ## 2.7 当前线程副本：ThreadLocal
 * 使用ThreadLocal维护变量时，ThreadLocal为每一个使用该变量的线程提供独立的变量副本
+* 通过ThreadLocalMap进行线程隔离，每个线程有独立的ThreadLocalMap
+* ThreadLocal在处理线程的局部变量时比synchronized同步机制更简单
+* 使用ThreadLocal，一般声明在静态变量中
+
+## 2.8 线程异常处理
+
+|异常|处理方法|
+|:---:|:---:|
+|Checked Exception|使用try{}catch{}|
+|Unchecked Exception|实现UncaughtExceptionHandler|
