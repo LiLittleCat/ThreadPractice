@@ -1,14 +1,14 @@
-package chapter2.code.two;
+package chapter2.code.part2;
 /**
  * @author LiLittleCat
  * @since 2019/12/16
  */
 public class ThreadB implements Runnable {
+    @Override
     public void run() {
         try {
-            //模拟事情做了100s
-            Thread.sleep(100000L);
-
+            //模拟事情做了10s
+            Thread.sleep(10000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

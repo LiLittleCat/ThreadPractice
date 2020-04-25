@@ -1,4 +1,4 @@
-package chapter2.code.one;
+package chapter2.code.part1;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -10,7 +10,7 @@ import java.util.concurrent.FutureTask;
 public class ThreadMainC {
     public static void main(String[] args) {
         ThreadC threadC = new ThreadC();
-        FutureTask<String> future = new FutureTask<String>(threadC);
+        FutureTask<String> future = new FutureTask<>(threadC);
         new Thread(future).start();
         System.out.println("这是主进程：begin");
         try {

@@ -1,4 +1,4 @@
-package chapter3.two;
+package chapter3.part3;
 
 /**
  * @author LiLittleCat
@@ -16,6 +16,7 @@ public class ThreadMain {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //add方法加入synchronized，每次结果都一样
         System.out.println("5个人干活，最后的值为：" + count.num);
     }
 }

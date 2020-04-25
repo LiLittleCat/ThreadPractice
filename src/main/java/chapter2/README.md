@@ -2,13 +2,13 @@
 
 ## 2.1 线程简单实现的三种方法
 
- 1. [继承Thread，重写run()方法](./code/one/ThreadA.java)
+ 1. [继承Thread，重写run()方法](code/part1/ThreadA.java)
  
     缺点：只能单继承
 
- 2. [实现Runable接口，实现run()方法](./code/one/ThreadB.java)
+ 2. [实现Runable接口，实现run()方法](code/part1/ThreadB.java)
  
- 3. [实现Callable接口，实现call()方法](./code/one/ThreadC.java)
+ 3. [实现Callable接口，实现call()方法](code/part1/ThreadC.java)
  
 ## 2.2 Thread里的属性和方法
 
@@ -47,11 +47,10 @@ new,runnable,running,blocked,dead
    处于线程就绪队列，具备运行条件，此时线程活着（alive）
 3. 运行（running）：线程获得CPU资源正在执行任务（run()方法），此时除非线程自动放弃CPU资源或者有更高优先级线程进入，  
    线程将一直运行至结束，此时线程活着（alive）
-4. 堵塞（blocked）：由于某种原因导致正在运行的线程让出CPU资源并暂停执行，进入此状态
+4. 堵塞（blocked）：由于某种原因导致正在运行的线程让出CPU资源并暂停执行，进入此状态，处于堵塞状态的线程是活着的（alive）
     * 正在睡眠：sleep(long t)
     * 正在等待：调用wait()方法，可用notify()方法回到就绪状态
     * 被另一个线程阻塞：调用suspend()方法，可用resume()方法恢复
-    处于堵塞状态的线程是活着的（alive）
 5. 死亡（dead）：线程执行完毕或被其他线程杀死，不可能再次进入就绪状态
     * 自然终止：正常运行run()方法结束
     * 异常终止： 调用stop()方法
@@ -66,6 +65,7 @@ new,runnable,running,blocked,dead
     
 ## 2.6 线程组
 * 为了方便线程管理，根线程组是system线程组，system线程组下是main线程组
+    * Thread.currentThread().getThreadGroup();可获取当前线程组
 
 ## 2.7 当前线程副本：ThreadLocal
 * 使用ThreadLocal维护变量时，ThreadLocal为每一个使用该变量的线程提供独立的变量副本
@@ -74,8 +74,15 @@ new,runnable,running,blocked,dead
 * 使用ThreadLocal，一般声明在静态变量中
 
 ## 2.8 线程异常处理
+- Java多线程程序中，所有线程不允许抛出未捕获的checked exception，这是因为Runnable.run()方法声明未抛出异常  
 
 |异常|处理方法|
 |:---:|:---:|
 |Checked Exception|使用try{}catch{}|
-|Unchecked Exception|实现UncaughtExceptionHandler|
+|Unchecked Exception|实现UncaughtExceptionHandler|  
+
+- 实现handle unchecked exception的步骤：
+    - 定义一个类实现UncaughtExceptionHandler接口，在实现的方法里包含对异常处理的逻辑和步骤
+    - 定义线程执行结构和逻辑，这一步与普通线程定义一样
+    - 在创建和执行该子进程的方法中，在thread.start()语句前增加thread.setUncaughtExceptionHandler语句来实现处理逻辑的注册
+    

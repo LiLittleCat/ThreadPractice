@@ -1,6 +1,4 @@
-package chapter2.code.one;
-
-import chapter2.code.one.ThreadA;
+package chapter2.code.part1;
 
 /**
  * @author LiLittleCat

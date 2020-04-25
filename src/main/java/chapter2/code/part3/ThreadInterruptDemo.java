@@ -1,4 +1,4 @@
-package chapter2.code.three;
+package chapter2.code.part3;
 
 /**
  * @author LiLittleCat
@@ -17,6 +17,7 @@ public class ThreadInterruptDemo implements Runnable {
         System.out.printf("Stopping application...");
     }
 
+    @Override
     public void run() {
         boolean stop = false;
         while (!stop) {

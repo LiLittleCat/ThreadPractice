@@ -1,4 +1,4 @@
-package chapter2.code.four;
+package chapter2.code.part4;
 
 /**
  * @author LiLittleCat

@@ -1,4 +1,4 @@
-package chapter2.code.one;
+package chapter2.code.part1;
 
 import java.util.concurrent.Callable;
 
@@ -7,6 +7,7 @@ import java.util.concurrent.Callable;
  * @since 2019/12/12
  */
 public class ThreadC implements Callable<String> {
+    @Override
     public String call() throws Exception {
         try {
             Thread.sleep(500L);

@@ -1,4 +1,4 @@
-package chapter3.three;
+package chapter3.part2;
 
 /**
  * @author LiLittleCat
@@ -16,6 +16,7 @@ public class ThreadMain {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //多线程不安全问题，每次打印的结果都不一样
         System.out.println("5个人干活，最后的值为：" + count.num);
     }
 }

@@ -1,4 +1,4 @@
-package chapter2.code.eight;
+package chapter2.code.part8;
 
 /**
  * @author LiLittleCat
@@ -6,6 +6,8 @@ package chapter2.code.eight;
  */
 public class ExceptionHandlerThreadB implements Thread.UncaughtExceptionHandler {
     //实现UncaughtExceptionHandler接口，处理Unchecked Exception
+
+    @Override
     public void uncaughtException(Thread t, Throwable e) {
         System.out.println("There is an exception\n");
         System.out.println("Thread: " + t.getId());
